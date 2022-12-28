@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- form태그!  사용자입력값이 파라미터로 전달되게!-->
+<!--  완전 독립적인 페이지 -->
+<!-- post method 사용하기 (ex04같은 내용에) -->
+	<form method="post" action="/servlet/ex05"> <!-- 이동할 페이지 주소 -->
+		<label>이름 : </label> <input type="text" name="name">   <!-- name속성 붙여서 파라미터 이름 적기 -->
+		<label>생년월일 : </label> <input type="text" name="birthday">
+		<button type="submit">입력</button>  <!-- -버튼 타입은 submit이 되어야 전달됨. -->
+		
+	</form>	
+</body>
+</html>
