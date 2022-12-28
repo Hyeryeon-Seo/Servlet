@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Servlet</display-name>
+<!-- 데이터를 저장하기위해 쓰는 파일이 xml --> 
+
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>com.seonuit.servlet.test.HelloController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+		<!--주소는 꼭 / 슬래시로 시작 -->
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ex01</servlet-name>
+		<servlet-class>com.seonuit.servlet.servlet.Ex01Controller</servlet-class> 
+		<!--  패키지이름 다 포함햬 클래스이름까지 써줘야 찾아갈수! -->
+		<!--  오타가 없으면 ctrl키 누른상태로 저 주소 누르면 밑줄이 뜬다 -->
+	</servlet>
+	
+	<!--  실행되는 주소 형식 만들기 -->
+	<servlet-mapping>
+		<servlet-name>ex01</servlet-name>	 <!--  ex01이라는 서버렛 실행?  -->
+		<url-pattern>/servlet/ex01</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>test01</servlet-name>
+		<servlet-class>com.seonuit.servlet.servlet.test.Test01Controller</servlet-class>	
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>test01</servlet-name>
+		<url-pattern>/servlet/test01</url-pattern>
+	</servlet-mapping>
+
+	
+	<servlet>
+		<servlet-name>test02</servlet-name>
+		<servlet-class>com.seonuit.servlet.servlet.test.Test02Controller</servlet-class> 
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test02</servlet-name>
+		<url-pattern>/servlet/test02</url-pattern>
+	</servlet-mapping>
+
+
+
+</web-app>

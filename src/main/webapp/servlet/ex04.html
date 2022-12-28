@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- form태그!  사용자입력값이 파라미터로 전달되게!-->
+<!--  완전 독립적인 페이지 -->
+	<form method="get" action="/servlet/ex03"> <!-- 이동할 페이지 주소 -->
+		<label>이름 : </label> <input type="text" name="name">   <!-- name속성 붙여서 파라미터 이름 적기 -->
+		<label>생년월일 : </label> <input type="text" name="birthday">
+		<button type="submit">입력</button>  <!-- -버튼 타입은 submit이 되어야 전달됨. -->
+		<!--입력하고, 입력, 버튼(submit타입) 누르면, 이게.. ex03Controller클래스의 (/servlet/ex03으로 이동해서) 내용을 뜨게 한다 -->
+	</form>	
+</body>
+</html>
