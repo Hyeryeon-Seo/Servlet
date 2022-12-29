@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>get method</title>
+
 </head>
 <body>
 
