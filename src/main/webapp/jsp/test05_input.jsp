@@ -14,13 +14,16 @@
 
 	<form method="post" action="/jsp/test05.jsp">
 	
+	<!-- 가장 바깥쪽은 container (부트스트랩의) 써주는게 좋다 -->
+	<div class="container">
 		<h2>길이 변환</h2>	
 		<input type="text" class="form-control" name="length">&nbsp; <label>cm</label> <br>
-		<label>인치 <input type="checkbox" name="measure" value="inch"></label>
+		<label>인치 <input type="checkbox" name="measure" value="inch"></label> <!-- name="unit"쓰거나 / 각각 구분하는 값 value (test05파라미터밸류값과 일치되게) -->
 		<label>야드 <input type="checkbox" name="measure" value="yard"></label>
 		<label>피트 <input type="checkbox" name="measure" value="feet"></label>
 		<label>미터 <input type="checkbox" name="measure" value="meter"></label> <br>
 		<button type="submit" class="btn btn-success">변환</button>
+	</div>
 	
 	</form>
 

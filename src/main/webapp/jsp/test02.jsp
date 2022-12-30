@@ -26,9 +26,9 @@
 		
 		String formatString = null; // 초기화?  if문밖에서 이렇게 설정해주면 if문밖에서도 쓸 수 있다
 		if(what.equals("date")) {  //날짜
-			String formatString = dateFormatter.format(now);
+			formatString = dateFormatter.format(now);
 		} else { // 시간
-			String formatString = timeFormatter.format(now);
+			formatString = timeFormatter.format(now);
 		}
 	
 	%>
