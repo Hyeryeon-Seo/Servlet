@@ -24,7 +24,7 @@
 			
 			double inchLength = length * 0.393701;
 			String strInchLength = Double.toString(inchLength); // string화 시킬 필요 없이 그냥 붙이면 되는건가 ? ㅠㅠ
-			lengthString += strInchLength + " in" + "<br>"; // "in<br>" 추가해주면 됨 
+			lengthString += strInchLength + " in<br>";  // T- "in" + "<br>" 추가해주면 됨 
 			
 		}   else if (lengthArray[i].equals("yard")) {
 			
