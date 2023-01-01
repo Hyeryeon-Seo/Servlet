@@ -40,9 +40,9 @@
     String searchedMenu = request.getParameter("menu");
 	String[] point4check = request.getParameterValues("point4check");
 	// 제이쿼리의 .checked ? 혼동했는데 , 여기선 안됨ㅠㅠ
-	// values로 받아 배열에넣어주고, 체크가되었다면 이 파라미터배열이 1개 그게 아니면 (0개)
+	// values로 (복수는 아니지만) 받아 배열에넣어주고, 체크가되었다면 이 파라미터배열이 1개 그게 아니면 (0개)
 	
-    // map안에 <String, Object> upcasting? string key ... 리턴된게 오브젝트
+    // map안에 <String, Object> upcasting?, string key ... 리턴된게 오브젝트
    		%>
    		
    		<div class="container"> <!-- 우선 container 만들고 시작  -->
@@ -68,11 +68,10 @@
 			    	//return되는 타입이 object이므로 upcasting으로 저장된 걸 객체?로 변환하는게 downcasting
 					   	
 					  //double point = Double.parseDouble(strPoint); 이거 말고 아래처럼 그냥 double로 바꾸기 (문자열 x)
-					  //double point = (Double)restaurantInfo.get("point");
 					   		
 					    if(searchedMenu.equals(store.get("menu"))) { // 답안 - searchedMenu와 store menu일치하는 경우
 					   	    	//맞을때만 반복시킴. 조건넣기!  // Map의 get(key) 매소드 기억!!
-					   	    if(point4check != null) { //.checked == true ? / 맨앞 !은 안되는?
+					   	    if(point4check != null) { //.checked == true ? X / 맨앞 !은 안됨..
 					    		double point = (double)store.get("point"); // 출력은 map의 get메소드로도 그대로 뜨지만, 이건 double 실수로바꿔야
 					   	    		if(point > 4.0) {
     			%>
@@ -92,7 +91,7 @@
 				<% 		} %> <!--  //if문도 닫고 -->
 				<% 	} %> <!-- for문도 닫기  반복 끝 -->
 						
-					<!-- 괄호닫기 {} 헷갈리니 주의! 아예 다 써놓고 마지막에 %<> 해주기 -->
+					<!-- 괄호닫기 {} 헷갈리니 주의! 아예 다 써놓고 마지막에 %<> 해주거나 -->
 					</tbody>
 				
 			</table>

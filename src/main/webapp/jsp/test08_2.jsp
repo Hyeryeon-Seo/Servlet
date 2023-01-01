@@ -59,22 +59,22 @@
     };
     list.add(map);
     
-    	//String clickedTitle = request.getParameter("book.get("ti tle")");
-    	//파라미터 변
+    	String bookTitle = request.getParameter("bookTitle");
+    	// --!! parameter, 책 제목으로 어떻게 전달받는지? : input 태그쓰고 submit, value값에서 제목 다르게
+    	// 파라미터 받을때 주의, bookTitle 파라미터 이름에 value값 전달?
+    	// 파라미터이름에 바로 <..book.get("title") : X
     %>
 
     <div class="container">
     	
     	<% for(Map<String, Object> book:list) { 
-   	 %>
-   		<!--  String bookInfo = request.getParameter(%> <book.get("titl -->
-   		<!-- parameter, 책 제목으로 어떻게 전달받는지?   -->
-			<!-- <	if(bookInfo.equals(book.get("title"))) {  -->
+   	 
+			  if(bookTitle.equals(book.get("title"))) { %>	
 					
 					<h1 class="pt-4"><%= book.get("title") %></h1>
 				
 		<% 		} %>
-		<%  //} %>
+		<%  } %>
 	
 	
 	

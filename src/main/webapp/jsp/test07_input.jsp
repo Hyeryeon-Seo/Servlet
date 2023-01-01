@@ -12,19 +12,18 @@
 </head>
 <body>
 		
-		<div class="container">  <!-- 위 여백 줘보기 -->
-			<h1 class="pt-5">메뉴 검색</h1>
+		<div class="container">  
+			<h1 class="pt-5">메뉴 검색</h1><!-- 위 여백 -->
 		
 			<form method="get" action="/jsp/test07.jsp">
 				<div class="d-flex"> <!-- 가로배치 -->
 					<input type="text" class="form-control col-3" name="menu"> <!-- col- 로 input 가로길이 설정-->
-					<input type="checkbox" name="point4check" value="point4check" checked="checked"><label>4점 이하 제외</label> <!-- &nbsp; 띄어쓰기 소용 없음 / class="form-control col-1"-->
+					<input type="checkbox" name="point4check" value="point4check" class="ml-3"><label class="m-1">4점 이하 제외</label> 
+					<!-- &nbsp; 띄어쓰기나 class="ml-3" 왼쪽여백 등 / 체크박스 class="form-control col-1 할필요없음 / checked="checked" X /
+					value="point4check"로 해봄 -->
 				</div>
-				
 				<br>
 				<button type="submit" class="btn btn-success">검색</button>
-				
-			
 			</form>
 		
 		</div>

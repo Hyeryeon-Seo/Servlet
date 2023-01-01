@@ -16,7 +16,6 @@
 	<%
 	// T:  test08 책  저장된형태 object 이미지넣어서.. 태그로 먼저 만들어두고 책 하나만 보여주는 페이지. 보고싶은 책 정보 하나만.
     //목록으로 만들어놓고 어떻게해서 하나만 보여주게 할 수 있을지 , 파라미터생각해서!
-    // 그다음 페이지에서 링크 누르면 책 정보 보여주는 페이지로
     // 7,8번 과제로, 리스트까지만 / 나머지 수업때
     // -- jsp 2? 여기서 파라미터주고 다른 jsp로?
 	
@@ -72,37 +71,37 @@
 			<h2 class="text-center pt-5">책 목록</h2> <!-- pt 위여백 -->
 		
 			<table class="table text-center">
-			<thead>
-				<tr>
-					<th>id</th>
-					<th>표지</th>
-					<th>목록</th>
-				</tr>
-			</thead>
-	   		</tbody>
-	   		<% for(Map<String, Object> book:list) { %>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>표지</th>
+						<th>목록</th>
+					</tr>
+				</thead>
+		   		</tbody>
+		   		<% for(Map<String, Object> book:list) { %>
+		   			
+		   			<tr> <!-- 반복할 내용 시작 -->
+		   				<td><%= book.get("id") %></td>
+		   				<td><img alt="img_<%= book.get("title") %>" width="100" src="<%= book.get("image") %>"></td>
+		   				
+		   				<td><input type="submit" name="bookTitle" value=<%= book.get("title") %> 
+		   				class="display-4 text-primary" style="border:none; background: transparent;"></td> 
+		   				<!-- font-size-large로는 왜 안먹힐까? (style=""도 안됨)/ img 부분 오류로 뜨나 실제 페이지 잘 뜸-->
+
+		   				<!-- a href="/jsp/test08_2.jsp"  a 링크는 있어야..-->
+		   				<!--!! a href="" ? submit필요? name=%..? 파라미터전달, a태그 사용가능? 
+		   				  >> input 태그를 style- 테두리,배경색 없애서 submit하기 (따로서칭)
+		   				
+		   				  / !! name은 파라미터이름 다르게 다 설정해줘야 다르게 연결 - 이 아니고!, 
+		   				  / selectbox처럼,  value로 책이름 다르게 설정하기!(name은 같이묶어줌)  -->
+		   			</tr>
+		   			
+		   		<%  } %>
 	   			
-	   			<tr> <!-- 반복할 내용 시작 -->
-	   				<td><%= book.get("id") %></td>
-	   				<td><img alt="img_<%= book.get("title") %>" width="100" src="<%= book.get("image") %>"></td>
-	   				<td class="display-4 text-primary"><a href="/jsp/test08_2.jsp" type="submit" name=<%= book.get("title")%>> <%= book.get("title") %></a></td> 
-	   				<!-- a href="/jsp/test08_2.jsp"  a 링크는 있어야..-->
-	   				<!-- font-size-large로는 왜 안먹힐까? (style=""도 안됨)/ img 부분 오류로 뜨나 실제 페이지 잘 뜸-->
-	   				<!--!! a href="" ? submit? name=%..? 파라미터 name 
-	   				name은 파라미터이름 다르게 다 설정해줘야 다르게 연결 -->
-	   			</tr>
-	   			
-	   		<%  } %>
-   			
-   	</form>	
-   		
-  
-	
-	
-	
-	
-		</table>
-	</div>
+			</table>
+		</div>
+	</form>	
 
 </body>
 </html>
