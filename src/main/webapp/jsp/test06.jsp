@@ -43,7 +43,7 @@
 	<div class="container">
 		<h1 class="text-center">장 목록</h2>
 		
-		<table border="1" class="table form-control text-center" width="400">
+		<table border="1" class="table text-center" width="400">
 			<thead>
 				<tr>
 					<th>번호</th>

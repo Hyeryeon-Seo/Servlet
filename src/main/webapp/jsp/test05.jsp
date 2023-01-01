@@ -30,19 +30,19 @@
 			
 			double yardLength = length * 0.010936;
 			String strYardLength = Double.toString(yardLength);
-			lengthString += strYardLength + "<br>";
+			lengthString += strYardLength + "yd<br>";
 			
 		} else if (lengthArray[i].equals("feet")) {
 			
 			double feetLength = length * 0.032808;
 			String strFeetLength = Double.toString(feetLength);
-			lengthString += strFeetLength + "<br>";
+			lengthString += strFeetLength + "ft<br>";
 			
 		} else {
 			
 			double meterLength = length * 0.01;
 			String strMeterLength = Double.toString(meterLength);
-			lengthString += strMeterLength + "<br>";
+			lengthString += strMeterLength + "m<br>";
 		}
 		
 	}
@@ -56,7 +56,7 @@
 	
 	<div class="container">
 		<h2>변환 결과</h2>
-		<div><%= length%>cm</div>
+		<div><%= length %>cm</div>
 		<hr>
 		<div><%= lengthString %></div>
 		
