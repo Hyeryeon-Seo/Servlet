@@ -77,7 +77,7 @@
 						<th>목록</th>
 					</tr>
 				</thead>
-		   		</tbody>
+		   		<tbody>
 		   		<% for(Map<String, Object> book:list) { %>
 		   			
 		   			<tr> <!-- 반복할 내용 시작 -->
@@ -113,7 +113,7 @@
 		   			</tr>
 		   			
 		   		<%  } %>
-	   			
+	   			</tbody>
 			</table>
 		</div>
 	
