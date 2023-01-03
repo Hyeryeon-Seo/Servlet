@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+header {
+	height: 100px;
+}
+
+.main-menu {
+	height: 50px;
+}
+
+/* (전frontend때도) contents height 500px 부여했다가, 
+사진 등 내용 채웠으니 없애는게 좋다 (방해되니)*/
+
+footer {
+	height: 70px;
+}
