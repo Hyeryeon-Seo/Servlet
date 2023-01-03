@@ -21,6 +21,7 @@
 					<input type="checkbox" name="point4check" value="point4check" class="ml-3"><label class="m-1">4점 이하 제외</label> 
 					<!-- &nbsp; 띄어쓰기나 class="ml-3" 왼쪽여백 등 / 체크박스 class="form-control col-1 할필요없음 / checked="checked" X /
 					value="point4check"로 해봄 -->
+					<!--위에T - <label><input type="checkbox" name="pointFilter" value="true" (체크했으면 true로)>4점 이하 제외</label>  -->
 				</div>
 				<br>
 				<button type="submit" class="btn btn-success">검색</button>

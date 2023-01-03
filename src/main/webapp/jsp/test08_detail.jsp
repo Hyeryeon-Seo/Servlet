@@ -59,22 +59,42 @@
     };
     list.add(map);
     
-    	String bookTitle = request.getParameter("bookTitle");
+    	Integer id = Integer.parseInt(request.getParameter("id"));
+    	//따로 form, submit .. 전달할 name(이나value)없어도됨 (outcasting필요없단뜻?) 
+    	// 그냥 a링크로 연결되어서 알아서..
+    	//int는?.  Integer도 됨
+    			
+    			
+    	//NO- String[] titleArray = request.getParameterValues("bookTitle");
     	// --!! parameter, 책 제목으로 어떻게 전달받는지? : input 태그쓰고 submit, value값에서 제목 다르게
     	// 파라미터 받을때 주의, bookTitle 파라미터 이름에 value값 전달?
     	// 파라미터이름에 바로 <..book.get("title") : X
+    	// T?  - 파라미터는 받음! 그런데 a태그?.. (form도 필요없다) 
+    		//일단 모든 책 정보 다 뜨게 한꺼번에. 만들기 - 그 뒤 특정조건일때만 나오게 하기
     %>
 
-    <div class="container">
+    <div class="container m-5">
     	
     	<% for(Map<String, Object> book:list) { 
-   	 
-			  if(bookTitle.equals(book.get("title"))) { %>	
+    			
+    		if(book.get("id").equals(id)){ //굳이 아웃캐스팅안해도됨 (?)
+    			// 책 정보 꺼내서, 그게 변수파라미터와 같을 때 한권만 뜨게 한다
+    			// 그런데 실제론 제목 같을 수 있어 id로 가져오는게 좋다
+    	/*	for(int i = 0; i<titleArray.length; i++) {
+			  if(titleArray[i].equals(book.get("title"))) {  이거 no ㅠㅠ */
+		%>	
+					<div class="d-flex">
+						<div><img src="<%= book.get("image") %>"></div>
+						<div class="m-5"> <!-- T: ml-4 -->
+							<div class="display-1 font-weight-bold"><%= book.get("title") %></div>
+							<div class="pt-2 display-2 text-info"><%= book.get("author") %></div>
+							<div class="pt-2 display-4 text-secondary"><%= book.get("publisher") %></div>
+						</div>
+					</div>
 					
-					<h1 class="pt-4"><%= book.get("title") %></h1>
-				
-		<% 		} %>
-		<%  } %>
+					<!-- 주의: class 같은 거줄 때.. src=" "  따옴표사이에 <..%= 넣어야 -->
+		<% 		} 
+		  	} %>
 	
 	
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import= "java.util.*" %> 
+<%@ page import= "java.util.*" %>  <!-- 실제자바코드는 이렇게 꼼수로 import하면안됨 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +39,17 @@
     
     String searchedMenu = request.getParameter("menu");
 	String[] point4check = request.getParameterValues("point4check");
+	// 나는 위처럼 배열(여러개처럼?)로 받음, 작동은 함
+	// T- pointFilter로 true, false  
+	//   String pointFilter = re...getPara..("pointFilter")
+	// check안되면 파라미터전달안되어서 파라미터 없게 됨.> return null이된다 , menu검색만 전달돼
+	//  그래서 null인 경우도 지정해줘야 (체크박스 체크안된상태)
+	// >> if(pointFilter == null) {
+	/*		pointFilter = "false";  // 아묵것도 전달안됐을때 임의로 false값 저장
+	
+	*/
+	
+	
 	// 제이쿼리의 .checked ? 혼동했는데 , 여기선 안됨ㅠㅠ
 	// values로 (복수는 아니지만) 받아 배열에넣어주고, 체크가되었다면 이 파라미터배열이 1개 그게 아니면 (0개)
 	
@@ -74,6 +85,21 @@
 					   	    if(point4check != null) { //.checked == true ? X / 맨앞 !은 안됨..
 					    		double point = (double)store.get("point"); // 출력은 map의 get메소드로도 그대로 뜨지만, 이건 double 실수로바꿔야
 					   	    		if(point > 4.0) {
+					   	    			
+					   	    /* T 4점이하제외 답- pointFilter가 있을 
+					   	    //double point = ...해놓고
+					   	    //if(pointFilter.equals("false") || pointFilter.equals("true") && point < 4.0) {
+					   	    // >> 그런데 여기서 어쩌피 ||는 앞이 false면 뒤항은 체크하지도않으므로
+					   	    //   걍아래처럼 생략해서 쓰면됨 (false가 아니라면 어저피 true니까)
+					   	    if(point)  pointFi..이 false면 무조건 수행.  혹은, true인경우 point가 4.0이상?초과?일대
+    						즉, 이렇게> if(pointFilter.equals("false") || point < 4.0) {
+    			
+    						* T 추가++  포인트 필터가 ture이고 4.0미만면 보여주지말아라 (반대조건으로 만들어보기)
+    						if(pointFilter.equals("true") && point < 4.0) {
+    							 continue;
+    						}
+    							반복문에서 continue쓰곤하는데, 만약 반대조건이 더 간결하다면 특정조건이 아닐경우 보여주지않을경우만들어서, continue활용
+    						*/
     			%>
 									  <tr>  <!-- 여기부터 반복 내용, <html>의 테이블 구성안에 넣어주기 -->
 										 <td><%= store.get("menu")%></td>  <!-- menu -->
@@ -87,9 +113,9 @@
 										<td><%= store.get("name") %></td> <!--get메소드로 각 키("menu")에 따른 object? 문자열로 안바꿔도 그대로 출력가능-->
 										<td><%= store.get("point")%></td>
 									</tr>
-				<%			 } %>
-				<% 		} %> <!--  //if문도 닫고 -->
-				<% 	} %> <!-- for문도 닫기  반복 끝 -->
+				<%			 } 
+						}   //if문도 닫고 -->
+				 	} %> <!-- for문도 닫기  반복 끝 / jsp자바코드 기호 일일히 줄마다할필요없음..-->
 						
 					<!-- 괄호닫기 {} 헷갈리니 주의! 아예 다 써놓고 마지막에 %<> 해주거나 -->
 					</tbody>
