@@ -5,4 +5,4 @@
 			<h1>Layout</h1>
 		</header>
 		
-		<% String dateString = "2023년1월3일"; %>
+		<% String dateString = "2023년1월3일"; // 만약여기서 만들어두고 동적방식 include로 ex02에 가져가게되면 에러남%>

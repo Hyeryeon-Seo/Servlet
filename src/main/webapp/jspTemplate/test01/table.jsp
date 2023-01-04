@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<%@ page import="java.util.*" %>  <!-- 아래 map등 땜에 필요 -->
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="/jspTemplate/test01/style.css" type="text/css">
-</head>  
 <%
 List<Map<String, String>> list = new ArrayList<>();
 Map<String, String> map = new HashMap<String, String>() {{ put("ch", "5"); put("name", "SBS"); put("category", "지상파"); } };
@@ -49,50 +41,26 @@ list.add(map);
 map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
 list.add(map);
 
-	String category = request.getParameter("category");
-	// 이 경우 전달받는 파라미터가 없으면 에러가 난다.
+// 파라미터 안받고 그냥 section 안의 table내용 (처음에 뜨는)  (test01.jsp에 포함될, 동적방식)
 %>
-
-	<div class="container">
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>채널</th>
-					<th>채널명</th>
-					<th>카테고리</th>
-				</tr>ㅊ
-			</thead>
-			<tbody>
-			
-			<% for(Map<String, String> channel:list) { 
-				//?no  만들어진 변수, 결과물을 정적방식으로 가져온 sample에 써야하는듯? > 동적
-					if(category.equals(channel.get("category"))) {
-			%>
+			<!-- 띄어쓰기 tab 도 test01 에 포함될 내용 그대로 해주는게 좋다 
+			아래처럼 부트스트랩 써줄거지만 여기서는 부트스트랩 head에 써줄 필요가 없다. test01에 부트스트랩링크 써놨고, 거기서 적용되므로 -->
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<th>채널</th>
+						<th>채널명</th>
+						<th>카테고리</th>
+					</tr>
+				</thead>
+				<tbody>
+			<% for(Map<String, String> channel:list) {  %>
 					<tr>
 						<td><%= channel.get("ch") %></td>
 						<td><%= channel.get("name") %></td>
 						<td><%= channel.get("category") %></td>
 					</tr>
-			<% 		} else if (category.equals("전체")) {  // 여기서 그냥 else { 해버리면 카테고리별로 뜨지않고 모두뜸 (?ㅠ)%>
-						<tr>
-							<td><%= channel.get("ch") %></td>
-							<td><%= channel.get("name") %></td>
-							<td><%= channel.get("category") %></td>
-						</tr>
-			
-			<%		} 
-				}  %>
-				
-			</tbody>
-		</table>
-	</div>
+			<%	}  %>
+				</tbody>
+			</table>
 	
-		
-		
-		
-	
-
-
-
-
-
