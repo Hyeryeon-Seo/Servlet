@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/* header {
+	height: 100px;
+} */
+
+header > .logo {
+	height: 100px;
+}
+
+header > .search {
+	height: 100px;
+}
+
+.main-menu {
+	height: 50px;
+}
+
+/*.contents {
+	height: 500px;
+} */
+
+.artist-info {
+	height: 250px;
+}
+
+/* .music-list {
+	height: 400px;
+} */
+
+footer {
+	height: 50px;
+}
