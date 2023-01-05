@@ -14,6 +14,8 @@ import com.seonuit.servlet.common.MysqlService;
 
 @WebServlet("/db/ex01")  //urlMapping /   꼭 /로 시작
 public class Ex01Controller extends HttpServlet{
+	// 문제 워크벤치 먼저 수행 하고 에러없는거 체크하고   
+	// 종합문제도 풀어보면 좋다 
 	
 	@Override   //mysqul   사용법
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -45,19 +47,19 @@ public class Ex01Controller extends HttpServlet{
 		}
 			
 		
-		String insertQuery = "INSERT INTO `used_goods`\r\n"
+		String insertQuery = "INSERT INTO `used_goods`\r\n"  //쓸때 ""; 안에 복붙! 
 				+ "(`sellerId`, `title`, `price`, `description`, `picture`, `createdAt`, `updatedAt`)\r\n"
-				+ "VALUE \r\n"
-				+ "(3, '고양이 간식 팝니다', 2000, '저희 고양이가 까탈스러워 안먹어서 팝니다', NULL, now(), now());"
+				+ "VALUE\r\n"
+				+ "(3, '고양이 간식 팝니다', 2000, '저희 고양이가 까탈스러워 안먹어서 팝니다', NULL, now(), now());";
 		
 		int count = mysqlService.update(insertQuery);
 		
 		out.println("<div> 인서트 쿼리 수행 결과 : " + count + "</div>");
-	
 		out.println("</body></html>");	
+		
 		mysqlService.disconnect();
 	
-	}
+	
 //		// used_goods 에 있는 모든 행 출력하기
 //		try {
 //			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -94,10 +96,7 @@ public class Ex01Controller extends HttpServlet{
 //		}
 //			
 		
-		
-		
-		
-		
+	
 		
 	}
 

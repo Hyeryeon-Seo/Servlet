@@ -19,13 +19,13 @@ public class MysqlService {
 	
 	// 접속 기능
 	public void connect() {
+		// 접속
 		try {
-			connection = DriverManager.getConnection(url, userId, password); // 이걸 객체형태로 리턴해줌
-			Statement statement = connection.createStatement();
-
+				connection = DriverManager.getConnection(url, userId, password); // 이걸 객체형태로 리턴해줌
+				statement = connection.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+				e.printStackTrace();
 		}  
 		
 	}
@@ -35,9 +35,9 @@ public class MysqlService {
 	public ResultSet select(String query) {
 	
 		try {
-			statement.executeQuery(query);
+			return statement.executeQuery(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			
 			return null; //exception발생시 null을 리턴
@@ -48,11 +48,11 @@ public class MysqlService {
 	// 쿼리 수행기능 insert, update, delete
 	public int update(String query) {
 		try {
-			return statement.executeUpdate(query);
+				return statement.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return -1;  // 일반적으로 에러상황은 음수로 리턴
+				e.printStackTrace();
+				return -1;  // 일반적으로 에러상황은 음수로 리턴
 		}
 	}
 	
@@ -62,9 +62,12 @@ public class MysqlService {
 			statement.close();
 			connection.close();// 먼저쓰고
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 	
 }
