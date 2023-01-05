@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이유 곡 목록</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -97,18 +97,17 @@
     //나중에 없애기
 %>
 
-
 	<div class="container">
 		<jsp:include page="header.jsp" />  <!-- 나중에도 곡정보 페이지에서도 불러와서 쓸수있음 재탕 -->
 		<jsp:include page="menu.jsp" />
 		<section class="contents">
-			<article class="artist-info d-flex border border-success p-3"> <!-- 여기에 내부 여백 패딩 주면 안으로 들어가 _디테일하려면 stylesheet활용-->
-				<div class="photo col-2"> <!-- class이름 부여해주는게좋음 -->
+			<article class="artist-info d-flex border border-success p-3 mt-3"> <!-- 여기에 내부 여백 패딩 주면 안으로 들어가 _디테일하려면 stylesheet활용-->
+				<div class="photo col-2 mt-2"> <!-- class이름 부여해주는게좋음 -->
 					<img alt="singer_IU" width="200" src="<%= artistInfo.get("photo") %>">
-					<!--  style="margin:20px" 나 , ㄱ -->
+					<!--  style="margin:20px" 나 ,-->
 					<!-- t- width="150" -->
 				</div>
-				<div class="info col-10 ml-4"> <!-- 나 m-4 -->
+				<div class="info col-10 ml-5 mt-2"> <!-- 이렇게 m줘야 예쁘게 된다-->
 					<h2><%= artistInfo.get("name") %></h2>
 					<div><%= artistInfo.get("agency") %></div>
 					<div><%= artistInfo.get("debute") %> 데뷔</div>
