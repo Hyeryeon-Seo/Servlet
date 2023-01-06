@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+header {
+	height: 100px;
+}
+
+.main-menu {
+	height: 50px;
+}
+
+/* contents는 채워졌으면 height없애기. 그래야 컨텐츠 맞춰서 크기 조절알아서됨
+(처음에는 확인위해서 높이 지정) */
+
+footer {
+	height: 70px;
+}

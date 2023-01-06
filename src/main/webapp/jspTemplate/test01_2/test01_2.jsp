@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <!--  원래 내가 푼 방식 : table.jsp, 파라미터받는 link_table.jsp따로 만들기 (파라미터 null처리 x) -->
+ <!-- 테이블 목록 한페이지로 (link_table) 만들기!  파라미터도 여기로 받고, 전체 첫페이지 목록도 -->
+ <!--  원래 내가 푼 방식은 (test01) : table.jsp, 파라미터받는 link_table.jsp따로 만들기 (파라미터 null처리 x) -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<!-- stylesheet 경로 정확히 폴더부터 쭉 잡아줘야 -->
-	<link rel="stylesheet" href="/jspTemplate/test01/style.css" type="text/css">
+	<link rel="stylesheet" href="/jspTemplate/test01_2/style.css" type="text/css">
 </head>
 
 <body> 
@@ -20,7 +21,7 @@
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
 		<section class="contents">
-			<jsp:include page="table.jsp" /> <!-- 동적방식 / 나는 table따로, 메뉴카테고리링크받는 link_table따로
+			<jsp:include page="link_table2.jsp" /> <!-- 동적방식 / 나는 table따로, 메뉴카테고리링크받는 link_table따로
 			그런데 link_table 하나로 연결하면 작동하지 않는다. 파라미터 null의 경우가 설정되지 않아서? >null경우 ||or로 만들면 됨-->
 		</section>
 		<jsp:include page="footer.jsp" />
