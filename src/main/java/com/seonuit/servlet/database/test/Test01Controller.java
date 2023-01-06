@@ -21,18 +21,25 @@ public class Test01Controller extends HttpServlet{
 	
 		PrintWriter out = response.getWriter();
 	
-		MysqlService mysqlService = new MysqlService(); 
+		MysqlService mysqlService = MysqlService.getInstance(); 
 		mysqlService.connect();
 		// String selectQuery = "SELECT * FROM `real_estate`;";
 		String selectQuery = "SELECT * FROM `real_estate`\r\n"
 				+ "ORDER BY `id` DESC\r\n"
 				+ "LIMIT 10;";
 		//mysql의 쿼리 select문법 써서 내림차순, 10개까지 보여주기 (자바 for반복문 그런거 아니다..)
+		// >> 답: SELECT * `address`, `area`, `type`
+		// FROM `real...` ORDER BY ... LIMIT 10;
+		// 위에거 mysql에 써두고 여기다 복붙(알아서 \r\n붙음) , 즉 아래에서 따로 address 등 변수 해줄게 아니라 칼럼 불러오기?..
 		ResultSet resultSet = mysqlService.select(selectQuery);
 		
 		
 		try {
 			while(resultSet.next()) {
+				// 답: out.print("매물 주소 : " + resultSet.getString("address"));
+				//     out. ...(", 면적 : " + resultSet.getInt("..)); 이런 식
+				// 즉 이렇게 바로바로 불러올 수 있다. 나처럼 변수 설정(ex예제대로함) 따로 안해도 
+				// 위에서 특정 칼럼들 불러오면 ..? > 하지만 변수설정하든 아니든 상관없음. 줄여서 쓸 수 있지만
 				String address = resultSet.getString("address");
 				int area = resultSet.getInt("area");
 				String type = resultSet.getString("type");
