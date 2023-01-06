@@ -17,7 +17,7 @@ public class Ex01Controller extends HttpServlet{
 	// 문제 워크벤치 먼저 수행 하고 에러없는거 체크하고   
 	// 종합문제도 풀어보면 좋다 
 	
-	@Override   //mysqul   사용법
+	@Override   //mysql   사용법
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//ctl shift o 로 임포트받기
 		response.setContentType("text/html");
@@ -33,7 +33,7 @@ public class Ex01Controller extends HttpServlet{
 		out.println("<html><head><title>중고 물품</title></head><body>");
 		
 		try {
-			while(resultSet.next()) { 
+			while(resultSet.next()) { //이거 쓰고 try,catch로 surround해주기
 				//iterator와비슷 (다음거 리턴 받아 처리) 그러나 이건 여기자체에서 값 끄집어내야
 				//반복문 while - 하나하나 반복하며 가리켜야
 				String title = resultSet.getString("title");  //꺼낼값.  컬럼이름. 타입도 써주기
@@ -46,7 +46,7 @@ public class Ex01Controller extends HttpServlet{
 			e.printStackTrace();
 		}
 			
-		
+		//아래 쿼리 문법은 직접 mysql에 쓰고 되는지 확인 후 여기에 복붙하는게 좋다
 		String insertQuery = "INSERT INTO `used_goods`\r\n"  //쓸때 ""; 안에 복붙! 
 				+ "(`sellerId`, `title`, `price`, `description`, `picture`, `createdAt`, `updatedAt`)\r\n"
 				+ "VALUE\r\n"
