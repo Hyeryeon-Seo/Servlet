@@ -32,7 +32,7 @@ public class MysqlService {
 	public static MysqlService getInstance() {
 		// 하나의 객체만 생성 
 		if(mysqlService == null) {
-			mysqlService = new MysqlService();
+				mysqlService = new MysqlService();
 		}
 		
 		return mysqlService;
@@ -42,12 +42,12 @@ public class MysqlService {
 	public void connect() {
 		// 접속
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-			connection = DriverManager.getConnection(url, userId, password); // 이걸 객체형태로 리턴해줌
-			statement = connection.createStatement();
+				DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+				connection = DriverManager.getConnection(url, userId, password); // 이걸 객체형태로 리턴해줌
+				statement = connection.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+				e.printStackTrace();
 		}
 
 	}
@@ -57,34 +57,34 @@ public class MysqlService {
 	public ResultSet select(String query) {
 
 		try {
-			return statement.executeQuery(query);
+				return statement.executeQuery(query);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+				e.printStackTrace();
 
-			return null; // exception발생시 null을 리턴
+				return null; // exception발생시 null을 리턴
 		}
 	}
 
 	// 쿼리 수행기능 insert, update, delete
 	public int update(String query) {
 		try {
-			return statement.executeUpdate(query);
+				return statement.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return -1; // 일반적으로 에러상황은 음수로 리턴
+				e.printStackTrace();
+				return -1; // 일반적으로 에러상황은 음수로 리턴
 		}
 	}
 
 	// 접속 끊는 메소드 (필요하지않으면 끊어줘야)
 	public void disconnect() {
 		try {
-			statement.close();
-			connection.close();// 먼저쓰고
+				statement.close();
+				connection.close();// 먼저쓰고
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+				e.printStackTrace();
 		}
 	}
 

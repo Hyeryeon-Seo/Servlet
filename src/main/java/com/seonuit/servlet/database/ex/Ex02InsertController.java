@@ -38,6 +38,7 @@ public class Ex02InsertController extends HttpServlet{
 				+ "VALUE\r\n"
 				+ "('" + name + "', '" + birthday + "', '" + email + "', now(), now());";
 		// ""따옴표 위에 넣을 대 주의  변수 넣을 때 사이에
+		// 워크벤치켜서 쓰고 넣자  변수에서 `아니고 ' 문자열 사이에 넣을거니까
 		
 		int count = mysqlService.update(query);
 	//	out.println("수행 결과 : " + count);

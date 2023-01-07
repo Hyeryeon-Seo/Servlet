@@ -20,7 +20,7 @@ public class Ex02DeleteController extends HttpServlet{
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		String query = "DELETE FROM `new_user` WHERE `id` = " + id + ";";
+		String query = "DELETE FROM `user` WHERE `id` = " + id + ";";
 		int count = mysqlService.update(query);
 		
 		mysqlService.disconnect();

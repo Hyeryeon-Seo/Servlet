@@ -25,7 +25,10 @@ public class Ex01Controller extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		// 아까만든 클래스, 객체 생성  (기능위주클래스)
-		MysqlService mysqlService = new MysqlService(); // 생성자 안만들었으면 클래스이름, 근데 임포트는 해줘야한다 
+		MysqlService mysqlService = new MysqlService(); 
+		// 생성자 안만들었으면 클래스이름, 근데 임포트는 해줘야한다 
+		// private 으로 MysqlService() 변경했기때문에.. 에러가 나중에 떴다.
+		// EX02처럼 .getInstance() 해서 써야하는 것 같다
 		mysqlService.connect();
 		String selectQuery = "SELECT * FROM `used_goods`;";
 		ResultSet resultSet = mysqlService.select(selectQuery);
@@ -55,8 +58,8 @@ public class Ex01Controller extends HttpServlet{
 		// 실행된 행의 갯수 리턴
 		int count = mysqlService.update(insertQuery);
 		
-		
 		out.println("<div> 인서트 쿼리 수행 결과 : " + count + "</div>");
+		
 		out.println("</body></html>");	
 		
 		mysqlService.disconnect();

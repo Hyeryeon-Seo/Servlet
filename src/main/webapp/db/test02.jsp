@@ -20,9 +20,10 @@
 		mysqlService.connect();
 		
 		// 3. 목록 출력하기
-		String query = "SELECT `name`, `url`"
-				+ "FROM `bookmark`"
+		String query = "SELECT `name`, `url`\r\n"
+				+ "FROM `bookmark`\r\n"
 				+ "ORDER BY `id` DESC;";
+				// \r \n등 없어도되나
 		
 		ResultSet resultSet = mysqlService.select(query);
 	
@@ -46,9 +47,12 @@
 					<td><a href="<%= resultSet.getString("url") %>"> <%= resultSet.getString("url") %> </a></td>
 					<td><a href="/db/test02_delete?name=<%= resultSet.getString("name") %>">삭제</a></td>
 				</tr>
-			</tbody>
 				<% } %>
+			</tbody>
 		</table>
+		
+		<a href="/db/test02_input.jsp">추가하기</a>
+		
 	</div>
 	
 

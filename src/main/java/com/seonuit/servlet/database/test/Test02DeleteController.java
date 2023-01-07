@@ -1,4 +1,4 @@
-package com.seonuit.servlet.database.ex;
+package com.seonuit.servlet.database.test;
 
 import java.io.IOException;
 
@@ -20,7 +20,9 @@ public class Test02DeleteController extends HttpServlet{
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 	
-		String query = "DELETE FROM `bookmark` WHERE `name` = " + name + ";";
+		String query = "DELETE FROM `bookmark` WHERE `name` = '" + name + "';";
+		// 에러 ` ' 때문! 직접 mysql workbench에서 입력해본 후 (name변수자리에 인스타라든가) 
+		// 그 부분은 문자열 ' ' 이니까  위에 쓸때 '" + name + "' ...이 되어야  (``칼럼말고)
 		int count = mysqlService.update(query);
 	
 		mysqlService.disconnect();

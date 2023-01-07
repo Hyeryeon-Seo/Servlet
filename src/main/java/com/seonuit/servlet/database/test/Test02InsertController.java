@@ -1,4 +1,4 @@
-package com.seonuit.servlet.database.ex;
+package com.seonuit.servlet.database.test;
 
 import java.io.IOException;
 
