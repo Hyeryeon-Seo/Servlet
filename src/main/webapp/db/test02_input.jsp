@@ -14,17 +14,20 @@
 </head>
 <body>
 	
-	<h2>즐겨찾기 추가</h2>
-	<form method="get" action="/db/test02_insert"> <!-- 연결 주의, 헷갈리지않게 -->
-		<div class="mt-4">
-			<label class="small">사이트명 : </label> <br>
-			<input type="text" name="name" class="form-control col-3"> <br>
-			<label class="small">사이트 주소 : </label> <br>
-			<input type="text" name="url" class="form-control col-6"> <br>
-			<button type="submit" class="btn btn-success">추가</button>
-		</div>
-		
-	</form>
+	<div class="container">
+		<h2>즐겨찾기 추가</h2>
+		<form method="post" action="/db/test02_insert"> <!-- 연결 주의, 헷갈리지않게 -->
+		<!-- 원래 get했는데 (나) > post form메소드로!  -->
+			<div class="mt-4">
+				<label class="small">사이트명 : </label> <!-- 여긴 br안넣어도 알아서 띄워짐 -->
+				<input type="text" name="name" class="form-control col-3"><br> <!-- 좀 더 띄우는게 예뻐서 -->
+				<label class="small">사이트 주소 : </label>
+				<input type="text" name="url" class="form-control col-6"><br><br>
+				<button type="submit" class="btn btn-success">추가</button>
+			</div>
+		</form>
+	</div>
+	
 	
 	<!-- <a href="/db/ex02.jsp">목록</a> -->
 

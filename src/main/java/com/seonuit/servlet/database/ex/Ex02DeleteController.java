@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.seonuit.servlet.common.MysqlService;
 
-@WebServlet("/db/ex02_delete")
+@WebServlet("/db/ex02_delete") //혹은 ex02/delete이런 식으로 짓는다거나
 public class Ex02DeleteController extends HttpServlet{
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	
 		int id = Integer.parseInt(request.getParameter("id")); //파라미터받고
 		

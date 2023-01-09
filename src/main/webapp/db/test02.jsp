@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>즐겨찾기 목록</title>
+<!-- 종합문제 홍당무마켓의 경우 쿼리 두개 써야하지만... 여튼 풀어보면좋다 다 종합해보는 문제라서  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -24,6 +25,7 @@
 				+ "FROM `bookmark`\r\n"
 				+ "ORDER BY `id` DESC;";
 				// \r \n등 없어도되나
+				//여기서 출력만 이니까 id는 select할필요없겠지
 		
 		ResultSet resultSet = mysqlService.select(query);
 	
@@ -45,7 +47,7 @@
 				<tr>
 					<td><%= resultSet.getString("name") %> </td>
 					<td><a href="<%= resultSet.getString("url") %>"> <%= resultSet.getString("url") %> </a></td>
-					<td><a href="/db/test02_delete?name=<%= resultSet.getString("name") %>">삭제</a></td>
+					<td><a href="/db/test02_delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
 				</tr>
 				<% } %>
 			</tbody>

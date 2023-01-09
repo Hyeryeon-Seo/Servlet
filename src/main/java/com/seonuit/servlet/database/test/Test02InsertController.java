@@ -13,8 +13,9 @@ import com.seonuit.servlet.common.MysqlService;
 public class Test02InsertController extends HttpServlet{
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		//post 메소드
+		
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 	
@@ -25,12 +26,13 @@ public class Test02InsertController extends HttpServlet{
 				+ "(`name`, `url`, `createdAt`, `updatedAt`)\r\n"
 				+ "VALUE\r\n"
 				+ "('" + name +"', '" + url + "', now(), now());";
+		//근데 여기서 첨에 \r\n 안들어갔는데 되었었다. 복붙했을때도 안들어갔구
 	
 		int count = mysqlService.update(query);
 	
 		mysqlService.disconnect();
 	
-		// 목록 출력 페이지 test02.jsp로 리다이렉트
+		// 목록 출력 페이지 test02.jsp(리스트페이지)로 리다이렉트
 		response.sendRedirect("/db/test02.jsp");
 		
 		
