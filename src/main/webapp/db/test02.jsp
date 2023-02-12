@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기 목록</title>
+<title>즐겨찾기 목록</title>  <!-- T :favorite.jsp인듯 -->
 <!-- 종합문제 홍당무마켓의 경우 쿼리 두개 써야하지만... 여튼 풀어보면좋다 다 종합해보는 문제라서  -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -46,8 +46,8 @@
 				<% while(resultSet.next()) { %>
 				<tr>
 					<td><%= resultSet.getString("name") %> </td>
-					<td><a href="<%= resultSet.getString("url") %>"> <%= resultSet.getString("url") %> </a></td>
-					<td><a href="/db/test02_delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
+					<td><a href="<%= resultSet.getString("url") %>" target="_blank"> <%= resultSet.getString("url") %> </a></td>
+					<td><a href="/db/test02/delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
 				</tr>
 				<% } %>
 			</tbody>
