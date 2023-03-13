@@ -56,7 +56,7 @@ public class Ex01Controller extends HttpServlet{
 				+ "(3, '고양이 간식 팝니다', 2000, '저희 고양이가 까탈스러워 안먹어서 팝니다', NULL, now(), now());";
 		
 		// 실행된 행의 갯수 리턴
-		int count = mysqlService.update(insertQuery);
+		int count = mysqlService.update(insertQuery);  // 근데 이게 B쌤 하면서 void (int말고) 로 설정해서 오류. .. int로 바꿔줘야?
 		
 		out.println("<div> 인서트 쿼리 수행 결과 : " + count + "</div>");
 		

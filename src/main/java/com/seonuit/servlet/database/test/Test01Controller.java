@@ -31,7 +31,13 @@ public class Test01Controller extends HttpServlet{
 		// >> 답: SELECT * `address`, `area`, `type`
 		// FROM `real...` ORDER BY ... LIMIT 10;
 		// 위에거 mysql에 써두고 여기다 복붙(알아서 \r\n붙음) , 즉 아래에서 따로 address 등 변수 해줄게 아니라 칼럼 불러오기?..
-		ResultSet resultSet = mysqlService.select(selectQuery);
+		ResultSet resultSet = null; //null로 자체수정
+		try {
+			resultSet = mysqlService.select(selectQuery); //try catch 자체수정
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		
 		try {
@@ -57,7 +63,7 @@ public class Test01Controller extends HttpServlet{
 				+ "VALUE\r\n"
 				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, NULL, now(), now());";
 		
-		int count = mysqlService.update(insertQuery);
+	//	int count = mysqlService.update(insertQuery);  수정 후 안되어 자체주석 (mysqlService수정)
 		// update.( ) 메소드 까지 꼭 해줘야 갱신  / 횟수
 		//out.println(count);
 		
