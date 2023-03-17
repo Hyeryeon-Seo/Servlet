@@ -22,7 +22,7 @@ public class Ex01 extends HttpServlet{ // import  ctl shift o
 		//response.setCharacterEncoding("utf-8");
 		
 		// db 연결
-		MysqlService ms = MysqlService.getInstance(); //이건 객체만드는거까지
+		MysqlService ms = MysqlService.getInstance(); //이건 객체만드는거까지 / DB 연결을 위한 객체 생성(싱글턴이라 한개만 생성됨)
 		ms.connect(); // !!!! 중요 실질적인 db연결 꼭!!
 		// conncect 메소드 호출해야 실제 db연결
 		

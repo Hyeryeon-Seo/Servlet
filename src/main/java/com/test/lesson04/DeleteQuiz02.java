@@ -15,9 +15,10 @@ public class DeleteQuiz02 extends HttpServlet{
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// a앵커태그로 받기때문에 get method (post말고)
 		int id = Integer.valueOf(request.getParameter("id"));
 		
-		// 연결
+		// db 연결
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
@@ -30,7 +31,7 @@ public class DeleteQuiz02 extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		// 연결 해제
+		// db 연결 해제
 		ms.disconnect();
 		
 		// 즐찾 목록 페이지 리다이렉트

@@ -15,11 +15,23 @@
 
 	<!-- 즐찾 추가 페이지_ 
 		form 태그 작성, 여기서 즐찾추가 받아서 넘길 것 -->
-	<form method="post" action="/lesson04/insert_quiz02">
 	
 	<div class="container mt-5">
 		<h2>즐겨찾기 추가</h2>
-		<p class="mt-3">
+		<form method="post" action="/lesson04/insert_quiz02"> <!-- t 여기서 form태그. / insert시 get보다post사용.이미지보낼때도 -->
+		<div class="form-group mt-3"> <!-- t 방식. form group 아래 label for..등등 -->
+			<label for="name">사이트 명:</label>
+			<input type="text" class="form-control col-4" id="name" name="name">
+		</div>
+		<div class="form-group">
+			<label for="url">사이트 주소:</label>
+			<input type="text" class="form-control col-12" id="url" name="url">
+		</div>
+		<div>
+			<input type="submit" value="추가" class="btn btn-success">
+		</div>
+		
+		<!-- 내방식 <p class="mt-3">
 			<b>사이트명:</b><br>
 			<input type="text" name="name" class="">
 		</p>
@@ -30,9 +42,11 @@
 		<p>
 			<input type="submit" value="추가" class="btn btn-success">
 		</p>
+		-->
+		
+		</form>
 	</div>
 	
-	</form>
 
 </body>
 </html>
